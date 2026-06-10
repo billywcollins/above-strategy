@@ -1,0 +1,1846 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Above — US Market Strategy 2026</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --white: #f7f7f5;
+        --black: #1a1a1a;
+        --accent: #4a6274;
+        --accent-light: #d0dbe3;
+        --mid: #6b7280;
+        --rule: #e2e2df;
+        --section-pad: 120px 80px;
+        --max: 960px;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: 'Inter', sans-serif;
+        background: var(--white);
+        color: var(--black);
+        font-size: 16px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Progress bar */
+      #progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 2px;
+        width: 0%;
+        background: var(--accent);
+        z-index: 100;
+        transition: width 0.1s linear;
+      }
+
+      /* Nav */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 50;
+        padding: 20px 80px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--white);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .nav-logo {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--black);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 32px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--mid);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+
+      .nav-links a:hover {
+        color: var(--black);
+      }
+
+      /* Sections */
+      section {
+        padding: var(--section-pad);
+        border-bottom: 1px solid var(--rule);
+      }
+
+      .inner {
+        max-width: var(--max);
+        margin: 0 auto;
+      }
+
+      /* Eyebrow labels */
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .eyebrow::after {
+        content: '';
+        display: block;
+        height: 1px;
+        width: 40px;
+        background: var(--accent);
+      }
+
+      /* Hero */
+      #hero {
+        padding: 160px 80px 120px;
+        background: var(--black);
+        color: var(--white);
+      }
+
+      #hero .eyebrow {
+        color: var(--accent-light);
+      }
+      #hero .eyebrow::after {
+        background: var(--accent-light);
+      }
+
+      .hero-headline {
+        font-size: clamp(36px, 5vw, 64px);
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+        max-width: 800px;
+        margin-bottom: 40px;
+      }
+
+      .hero-headline strong {
+        font-weight: 700;
+        color: var(--white);
+      }
+
+      .hero-sub {
+        font-size: 18px;
+        font-weight: 300;
+        color: #9ca3af;
+        max-width: 560px;
+        line-height: 1.7;
+        margin-bottom: 56px;
+      }
+
+      .hero-meta {
+        display: flex;
+        gap: 48px;
+      }
+
+      .hero-meta-item {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .hero-meta-label {
+        font-size: 11px;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+
+      .hero-meta-value {
+        font-size: 14px;
+        font-weight: 500;
+        color: #d1d5db;
+      }
+
+      /* Section headings */
+      h2 {
+        font-size: clamp(28px, 3.5vw, 44px);
+        font-weight: 300;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+        margin-bottom: 32px;
+      }
+
+      h2 strong {
+        font-weight: 700;
+      }
+
+      h3 {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 12px;
+        letter-spacing: -0.01em;
+      }
+
+      p {
+        font-size: 16px;
+        line-height: 1.75;
+        color: #374151;
+        margin-bottom: 20px;
+        max-width: 680px;
+      }
+
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Two col layout */
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 64px;
+        margin-top: 56px;
+      }
+
+      /* Cards */
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        margin-top: 56px;
+        background: var(--rule);
+      }
+
+      .card {
+        background: var(--white);
+        padding: 40px 32px;
+      }
+
+      .card-number {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        color: var(--accent);
+        margin-bottom: 20px;
+      }
+
+      .card h3 {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .card p {
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--mid);
+        max-width: 100%;
+      }
+
+      /* Vertical table */
+      .vertical-list {
+        margin-top: 56px;
+        border-top: 1px solid var(--rule);
+      }
+
+      .vertical-item {
+        display: grid;
+        grid-template-columns: 280px 1fr 160px;
+        gap: 40px;
+        padding: 40px 0;
+        border-bottom: 1px solid var(--rule);
+        align-items: start;
+      }
+
+      .vertical-label {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--black);
+        padding-top: 2px;
+      }
+
+      .vertical-desc {
+      }
+      .vertical-desc p {
+        font-size: 15px;
+        max-width: 100%;
+        margin-bottom: 12px;
+      }
+
+      .vertical-tags {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .tag {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 5px 10px;
+        border: 1px solid var(--rule);
+        color: var(--mid);
+        text-align: center;
+      }
+
+      .tag.hot {
+        background: var(--black);
+        color: var(--white);
+        border-color: var(--black);
+      }
+
+      .tag.warm {
+        background: var(--accent-light);
+        color: var(--accent);
+        border-color: var(--accent-light);
+      }
+
+      /* Pull quote */
+      .pull-quote {
+        border-left: 3px solid var(--accent);
+        padding: 8px 0 8px 32px;
+        margin: 48px 0;
+      }
+
+      .pull-quote p {
+        font-size: 22px;
+        font-weight: 300;
+        line-height: 1.5;
+        color: var(--black);
+        letter-spacing: -0.01em;
+        max-width: 640px;
+      }
+
+      /* Tension grid */
+      .tension-grid {
+        display: grid;
+        grid-template-columns: 1fr 40px 1fr;
+        gap: 0;
+        margin-top: 56px;
+        align-items: center;
+      }
+
+      .tension-side {
+        padding: 40px;
+        background: var(--rule);
+      }
+
+      .tension-side.right {
+        background: var(--black);
+        color: var(--white);
+      }
+      .tension-side.right p {
+        color: #9ca3af;
+      }
+      .tension-side.right h3 {
+        color: var(--white);
+      }
+
+      .tension-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        background: var(--accent);
+        color: var(--white);
+        font-size: 18px;
+        font-weight: 300;
+        writing-mode: vertical-rl;
+        letter-spacing: 0.1em;
+        padding: 20px 0;
+      }
+
+      /* Positioning block */
+      .positioning-block {
+        background: var(--black);
+        color: var(--white);
+        padding: 56px;
+        margin-top: 56px;
+      }
+
+      .positioning-block .label {
+        font-size: 11px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--accent-light);
+        margin-bottom: 20px;
+      }
+
+      .positioning-block .statement {
+        font-size: clamp(20px, 2.5vw, 28px);
+        font-weight: 300;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+        margin-bottom: 32px;
+        max-width: 720px;
+      }
+
+      .positioning-block .follow {
+        font-size: 16px;
+        color: #9ca3af;
+        line-height: 1.75;
+        max-width: 640px;
+        margin-bottom: 0;
+      }
+
+      /* Action list */
+      .action-list {
+        margin-top: 56px;
+        counter-reset: actions;
+      }
+
+      .action-item {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 32px;
+        padding: 36px 0;
+        border-bottom: 1px solid var(--rule);
+        align-items: start;
+      }
+
+      .action-item:first-child {
+        border-top: 1px solid var(--rule);
+      }
+
+      .action-num {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        color: var(--accent);
+        padding-top: 3px;
+      }
+
+      .action-content h3 {
+        margin-bottom: 8px;
+      }
+      .action-content p {
+        font-size: 15px;
+        max-width: 100%;
+      }
+
+      /* Footer */
+      footer {
+        padding: 60px 80px;
+        background: var(--black);
+        color: #6b7280;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      footer .logo {
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: var(--white);
+      }
+      footer .date {
+        font-size: 12px;
+        letter-spacing: 0.1em;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        nav {
+          padding: 16px 24px;
+        }
+        nav .nav-links {
+          display: none;
+        }
+        section {
+          padding: 80px 24px;
+        }
+        #hero {
+          padding: 120px 24px 80px;
+        }
+        .two-col {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+        .card-grid {
+          grid-template-columns: 1fr;
+        }
+        .vertical-item {
+          grid-template-columns: 1fr;
+          gap: 16px;
+        }
+        .tension-grid {
+          grid-template-columns: 1fr;
+        }
+        .tension-divider {
+          writing-mode: horizontal-tb;
+          padding: 16px;
+          height: auto;
+        }
+        .positioning-block {
+          padding: 36px 24px;
+        }
+        footer {
+          padding: 40px 24px;
+          flex-direction: column;
+          gap: 16px;
+          text-align: center;
+        }
+        .hero-meta {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress-bar"></div>
+
+    <nav>
+      <div class="nav-logo">Above — US Strategy</div>
+      <ul class="nav-links">
+        <li><a href="#market">Market</a></li>
+        <li><a href="#opportunity">Opportunity</a></li>
+        <li><a href="#verticals">Verticals</a></li>
+        <li><a href="#positioning">Positioning</a></li>
+        <li><a href="#actions">Next Steps</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO -->
+    <section id="hero">
+      <div class="inner">
+        <div class="eyebrow">Above — United States</div>
+        <h1 class="hero-headline">
+          A point of view on<br />
+          <strong>where we play,<br />and how we win.</strong>
+        </h1>
+        <p class="hero-sub">
+          A working document for Above's US market entry — grounded in market
+          research, shaped by Above's existing case portfolio, and designed to
+          start a real conversation.
+        </p>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Prepared by</span>
+            <span class="hero-meta-value">US Business Lead</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Date</span>
+            <span class="hero-meta-value">June 2026</span>
+          </div>
+          <div class="hero-meta-item">
+            <span class="hero-meta-label">Status</span>
+            <span class="hero-meta-value">Working Draft — For Discussion</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MARKET -->
+    <style>
+      /* Competitor landscape styles */
+      .comp-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+        margin-top: 48px;
+        background: var(--rule);
+      }
+
+      .comp-card {
+        background: var(--white);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .comp-img {
+        width: 100%;
+        aspect-ratio: 16/10;
+        object-fit: cover;
+        display: block;
+        filter: grayscale(20%);
+        transition: filter 0.3s;
+      }
+
+      .comp-card:hover .comp-img {
+        filter: grayscale(0%);
+      }
+
+      .comp-body {
+        padding: 28px 28px 32px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .comp-firm {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 6px;
+      }
+
+      .comp-body h3 {
+        font-size: 15px;
+        font-weight: 600;
+        margin-bottom: 10px;
+        letter-spacing: -0.01em;
+      }
+
+      .comp-body p {
+        font-size: 13px;
+        line-height: 1.65;
+        color: var(--mid);
+        max-width: 100%;
+        margin-bottom: 16px;
+        flex: 1;
+      }
+
+      .comp-clients {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: auto;
+      }
+
+      .comp-client-tag {
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 3px 8px;
+        background: var(--rule);
+        color: var(--mid);
+      }
+
+      .comp-gap-callout {
+        margin-top: 2px;
+        background: var(--black);
+        color: var(--white);
+        padding: 40px 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 48px;
+        align-items: center;
+      }
+
+      .comp-gap-callout h3 {
+        color: var(--white);
+        font-size: 20px;
+        font-weight: 300;
+        letter-spacing: -0.01em;
+        line-height: 1.4;
+        margin-bottom: 0;
+      }
+
+      .comp-gap-callout p {
+        font-size: 14px;
+        color: #9ca3af;
+        line-height: 1.75;
+        max-width: 100%;
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 900px) {
+        .comp-grid {
+          grid-template-columns: 1fr;
+        }
+        .comp-gap-callout {
+          grid-template-columns: 1fr;
+          gap: 20px;
+          padding: 28px 20px;
+        }
+      }
+    </style>
+
+    <section id="market">
+      <div class="inner">
+        <div class="eyebrow">The Market</div>
+        <h2>What's true about the US market <strong>right now.</strong></h2>
+
+        <div class="pull-quote">
+          <p>
+            "Innovation feels like a luxury. But the gap between physical and
+            digital product design has never been wider — or more costly."
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <h3>What we know to be true</h3>
+            <p>
+              Tight budgets driven by economic uncertainty have made
+              "innovation" feel out of touch with the reality of running a
+              profitable business. Leaders are risk-averse, and large
+              discretionary design engagements are harder to justify than they
+              were five years ago.
+            </p>
+            <p>
+              Companies want to move on AI — but they don't want to outsource
+              that capability entirely. They want direction and activation, not
+              dependency.
+            </p>
+            <p>
+              The decline of IDEO, Fjord, and Gravity Tank as independent forces
+              isn't just a business story. It's a market signal: the era of the
+              immersive, expensive, agency-led transformation engagement is
+              over. Clients want outcomes, not process theater.
+            </p>
+          </div>
+          <div>
+            <h3>What's shifting in our favor</h3>
+            <p>
+              Companies that built in-house design and innovation teams over the
+              last decade are quietly discovering that internal teams struggle
+              with the same problem they always did: proximity breeds timidity.
+              They have capability but lack the external perspective and
+              creative courage to place bold bets.
+            </p>
+            <p>
+              Connected products are creating design complexity that most
+              agencies are genuinely unequipped to handle. Experiences that span
+              physical hardware, digital interfaces, and real-world context
+              require a kind of integrated thinking that almost no one does
+              well.
+            </p>
+            <p>
+              Boutique firms with genuine craft depth are winning work that
+              large consultancies used to own — but almost none of them can
+              bridge physical and digital as a single integrated problem. That
+              gap is where Above lives.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Competitive landscape — full bleed -->
+      <div
+        style="
+          margin-top: 80px;
+          border-top: 1px solid var(--rule);
+          padding-top: 64px;
+        "
+      >
+        <div class="inner">
+          <div class="eyebrow">Competitive Landscape</div>
+          <h2>
+            Who's winning in the US — <strong>and where they stop.</strong>
+          </h2>
+          <p>
+            Three firms define the current competitive field most relevant to
+            Above. Each is excellent. Each has a ceiling. Understanding where
+            their models break down is where our market entry strategy begins.
+          </p>
+        </div>
+
+        <div style="max-width: var(--max); margin: 0 auto">
+          <!-- Venn diagram -->
+          <div style="position: relative; margin-top: 8px">
+            <svg
+              id="venn"
+              width="100%"
+              viewBox="0 0 960 580"
+              xmlns="http://www.w3.org/2000/svg"
+              style="display: block"
+            >
+              <!-- Circle fills -->
+              <circle
+                cx="330"
+                cy="230"
+                r="190"
+                fill="#FAECE7"
+                fill-opacity="0.5"
+                stroke="#D85A30"
+                stroke-width="0.75"
+              />
+              <circle
+                cx="630"
+                cy="230"
+                r="190"
+                fill="#E6F1FB"
+                fill-opacity="0.5"
+                stroke="#378ADD"
+                stroke-width="0.75"
+              />
+              <circle
+                cx="480"
+                cy="420"
+                r="190"
+                fill="#E1F5EE"
+                fill-opacity="0.5"
+                stroke="#1D9E75"
+                stroke-width="0.75"
+              />
+
+              <!-- Circle labels — outside -->
+              <text
+                font-family="Inter,sans-serif"
+                font-size="15"
+                font-weight="700"
+                fill="#993C1D"
+                text-anchor="middle"
+                x="148"
+                y="108"
+              >
+                Physical products
+              </text>
+              <text
+                font-family="Inter,sans-serif"
+                font-size="12"
+                font-weight="400"
+                fill="#D85A30"
+                text-anchor="middle"
+                x="148"
+                y="126"
+              >
+                Industrial design
+              </text>
+
+              <text
+                font-family="Inter,sans-serif"
+                font-size="15"
+                font-weight="700"
+                fill="#185FA5"
+                text-anchor="middle"
+                x="812"
+                y="108"
+              >
+                Digital products
+              </text>
+              <text
+                font-family="Inter,sans-serif"
+                font-size="12"
+                font-weight="400"
+                fill="#378ADD"
+                text-anchor="middle"
+                x="812"
+                y="126"
+              >
+                UX / product design
+              </text>
+
+              <text
+                font-family="Inter,sans-serif"
+                font-size="15"
+                font-weight="700"
+                fill="#0F6E56"
+                text-anchor="middle"
+                x="480"
+                y="562"
+              >
+                Human experiences
+              </text>
+              <text
+                font-family="Inter,sans-serif"
+                font-size="12"
+                font-weight="400"
+                fill="#1D9E75"
+                text-anchor="middle"
+                x="480"
+                y="578"
+              >
+                Service design
+              </text>
+
+              <!-- Intersection zone labels -->
+              <text
+                font-family="Inter,sans-serif"
+                font-size="11"
+                fill="#888780"
+                text-anchor="middle"
+                x="480"
+                y="176"
+              >
+                Connected products
+              </text>
+              <text
+                font-family="Inter,sans-serif"
+                font-size="11"
+                fill="#888780"
+                text-anchor="middle"
+                x="480"
+                y="191"
+              >
+                IoT · Smart hardware
+              </text>
+
+              <text
+                font-family="Inter,sans-serif"
+                font-size="11"
+                fill="#888780"
+                text-anchor="middle"
+                x="280"
+                y="400"
+              >
+                Experiential
+              </text>
+              <text
+                font-family="Inter,sans-serif"
+                font-size="11"
+                fill="#888780"
+                text-anchor="middle"
+                x="280"
+                y="414"
+              >
+                design
+              </text>
+
+              <text
+                font-family="Inter,sans-serif"
+                font-size="11"
+                fill="#888780"
+                text-anchor="middle"
+                x="682"
+                y="400"
+              >
+                Digital
+              </text>
+              <text
+                font-family="Inter,sans-serif"
+                font-size="11"
+                fill="#888780"
+                text-anchor="middle"
+                x="682"
+                y="414"
+              >
+                services
+              </text>
+
+              <!-- Above — center -->
+              <circle
+                cx="480"
+                cy="315"
+                r="46"
+                fill="#1A1A1A"
+                fill-opacity="0.92"
+              />
+              <text
+                font-family="Inter,sans-serif"
+                font-size="14"
+                font-weight="700"
+                fill="#F7F7F5"
+                text-anchor="middle"
+                x="480"
+                y="310"
+              >
+                Above
+              </text>
+              <text
+                font-family="Inter,sans-serif"
+                font-size="10"
+                font-weight="400"
+                fill="#9CA3AF"
+                text-anchor="middle"
+                x="480"
+                y="327"
+              >
+                Innovation design
+              </text>
+
+              <!-- Firm dots — clickable -->
+              <!-- Whipsaw -->
+              <g
+                class="firm-dot"
+                data-firm="whipsaw"
+                style="cursor: pointer"
+                onclick="showFirm('whipsaw')"
+              >
+                <circle
+                  cx="238"
+                  cy="218"
+                  r="8"
+                  fill="#D85A30"
+                  stroke="#F7F7F5"
+                  stroke-width="1.5"
+                />
+                <text
+                  font-family="Inter,sans-serif"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#993C1D"
+                  text-anchor="end"
+                  x="224"
+                  y="212"
+                >
+                  Whipsaw
+                </text>
+              </g>
+
+              <!-- Smart Design -->
+              <g
+                class="firm-dot"
+                data-firm="smartdesign"
+                style="cursor: pointer"
+                onclick="showFirm('smartdesign')"
+              >
+                <circle
+                  cx="256"
+                  cy="270"
+                  r="8"
+                  fill="#D85A30"
+                  stroke="#F7F7F5"
+                  stroke-width="1.5"
+                />
+                <text
+                  font-family="Inter,sans-serif"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#993C1D"
+                  text-anchor="end"
+                  x="242"
+                  y="293"
+                >
+                  Smart Design
+                </text>
+              </g>
+
+              <!-- Metalab -->
+              <g
+                class="firm-dot"
+                data-firm="metalab"
+                style="cursor: pointer"
+                onclick="showFirm('metalab')"
+              >
+                <circle
+                  cx="700"
+                  cy="210"
+                  r="8"
+                  fill="#378ADD"
+                  stroke="#F7F7F5"
+                  stroke-width="1.5"
+                />
+                <text
+                  font-family="Inter,sans-serif"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#185FA5"
+                  text-anchor="start"
+                  x="714"
+                  y="206"
+                >
+                  Metalab
+                </text>
+              </g>
+
+              <!-- Work & Co -->
+              <g
+                class="firm-dot"
+                data-firm="workco"
+                style="cursor: pointer"
+                onclick="showFirm('workco')"
+              >
+                <circle
+                  cx="692"
+                  cy="258"
+                  r="8"
+                  fill="#378ADD"
+                  stroke="#F7F7F5"
+                  stroke-width="1.5"
+                />
+                <text
+                  font-family="Inter,sans-serif"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#185FA5"
+                  text-anchor="start"
+                  x="706"
+                  y="274"
+                >
+                  Work &amp; Co
+                </text>
+              </g>
+
+              <!-- McKinsey Design -->
+              <g
+                class="firm-dot"
+                data-firm="mckinsey"
+                style="cursor: pointer"
+                onclick="showFirm('mckinsey')"
+              >
+                <circle
+                  cx="568"
+                  cy="468"
+                  r="8"
+                  fill="#1D9E75"
+                  stroke="#F7F7F5"
+                  stroke-width="1.5"
+                />
+                <text
+                  font-family="Inter,sans-serif"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#0F6E56"
+                  text-anchor="start"
+                  x="582"
+                  y="472"
+                >
+                  McKinsey Design
+                </text>
+              </g>
+
+              <!-- Fjord -->
+              <g
+                class="firm-dot"
+                data-firm="fjord"
+                style="cursor: pointer"
+                onclick="showFirm('fjord')"
+              >
+                <circle
+                  cx="400"
+                  cy="472"
+                  r="8"
+                  fill="#1D9E75"
+                  stroke="#F7F7F5"
+                  stroke-width="1.5"
+                />
+                <text
+                  font-family="Inter,sans-serif"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#0F6E56"
+                  text-anchor="end"
+                  x="386"
+                  y="492"
+                >
+                  Fjord (acquired)
+                </text>
+              </g>
+
+              <!-- IDEO — faded, near center but drifted -->
+              <g
+                class="firm-dot"
+                data-firm="ideo"
+                style="cursor: pointer; opacity: 0.55"
+                onclick="showFirm('ideo')"
+              >
+                <circle
+                  cx="480"
+                  cy="226"
+                  r="8"
+                  fill="#888780"
+                  stroke="#F7F7F5"
+                  stroke-width="1.5"
+                />
+                <text
+                  font-family="Inter,sans-serif"
+                  font-size="11"
+                  font-weight="600"
+                  fill="#5F5E5A"
+                  text-anchor="middle"
+                  x="480"
+                  y="214"
+                >
+                  IDEO (lost center)
+                </text>
+              </g>
+            </svg>
+
+            <!-- Firm detail panel — shown on dot click -->
+            <div
+              id="firm-panel"
+              style="
+                display: none;
+                position: relative;
+                margin-top: 0;
+                background: #1a1a1a;
+                color: #f7f7f5;
+                padding: 40px 48px;
+                border-top: 2px solid #f7f7f5;
+              "
+            >
+              <button
+                onclick="closeFirm()"
+                style="
+                  position: absolute;
+                  top: 20px;
+                  right: 24px;
+                  background: none;
+                  border: 1px solid #4b4b4b;
+                  color: #9ca3af;
+                  font-size: 12px;
+                  letter-spacing: 0.1em;
+                  text-transform: uppercase;
+                  padding: 6px 14px;
+                  cursor: pointer;
+                "
+              >
+                Close
+              </button>
+              <div
+                id="firm-eyebrow"
+                style="
+                  font-size: 11px;
+                  font-weight: 600;
+                  letter-spacing: 0.2em;
+                  text-transform: uppercase;
+                  color: #4a6274;
+                  margin-bottom: 12px;
+                "
+              ></div>
+              <div
+                id="firm-title"
+                style="font-size: 22px; font-weight: 700; margin-bottom: 6px"
+              ></div>
+              <div
+                id="firm-subtitle"
+                style="font-size: 14px; color: #9ca3af; margin-bottom: 24px"
+              ></div>
+              <div
+                style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px"
+              >
+                <div>
+                  <div
+                    style="
+                      font-size: 11px;
+                      font-weight: 600;
+                      letter-spacing: 0.15em;
+                      text-transform: uppercase;
+                      color: #4a6274;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    What they do well
+                  </div>
+                  <div
+                    id="firm-strength"
+                    style="font-size: 14px; line-height: 1.75; color: #d1d5db"
+                  ></div>
+                </div>
+                <div>
+                  <div
+                    style="
+                      font-size: 11px;
+                      font-weight: 600;
+                      letter-spacing: 0.15em;
+                      text-transform: uppercase;
+                      color: #d85a30;
+                      margin-bottom: 10px;
+                    "
+                  >
+                    Where they stop
+                  </div>
+                  <div
+                    id="firm-ceiling"
+                    style="font-size: 14px; line-height: 1.75; color: #d1d5db"
+                  ></div>
+                </div>
+              </div>
+              <div
+                id="firm-clients-wrap"
+                style="
+                  margin-top: 24px;
+                  padding-top: 20px;
+                  border-top: 1px solid #2d2d2d;
+                "
+              >
+                <div
+                  style="
+                    font-size: 11px;
+                    font-weight: 600;
+                    letter-spacing: 0.15em;
+                    text-transform: uppercase;
+                    color: #4a6274;
+                    margin-bottom: 10px;
+                  "
+                >
+                  Known clients
+                </div>
+                <div
+                  id="firm-clients"
+                  style="display: flex; flex-wrap: wrap; gap: 8px"
+                ></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- The gap callout -->
+          <div class="comp-gap-callout">
+            <h3>
+              "Every firm is excellent in one dimension. None of them does what
+              Above does."
+            </h3>
+            <p>
+              Whipsaw bridges physical and digital better than almost anyone in
+              the US — but their model is project-based, their culture is
+              Silicon Valley, and their creative philosophy is American. Metalab
+              and Work & Co have set the benchmark for digital partnership
+              quality — but they stop at the screen. Above operates across the
+              full problem: physical form, digital experience, and the long-term
+              creative relationship that makes both better over time. That is
+              not a crowded space.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      var firms = {
+        whipsaw: {
+          eyebrow: 'Physical + Digital — San Francisco',
+          title: 'Whipsaw',
+          subtitle: 'The closest US analog to Above',
+          strength:
+            'Founded in 1999 by former Frog Design president Dan Harden. Operates across industrial design, UX/UI, and mechanical engineering. 1,000+ products shipped, 325+ design awards. Work spans consumer electronics, medical devices, robotics, and fitness. Clients trust them with genuinely complex physical-digital briefs.',
+          ceiling:
+            'San Francisco-centric, rooted in Silicon Valley culture, and primarily hardware-first with digital layered on. No Scandinavian design philosophy, no European creative network, no decade-long co-creation partnerships of the EarLabs variety.',
+          clients: [
+            'Google',
+            'Nike',
+            'Tonal',
+            'Johnson & Johnson',
+            'Samsung',
+            'Dell',
+            'nVent',
+            'Brita',
+          ],
+        },
+        smartdesign: {
+          eyebrow: 'Physical + Experience — New York',
+          title: 'Smart Design',
+          subtitle: 'Consumer craft and inclusive design',
+          strength:
+            'Decades of consumer product design experience. Deep expertise in physical-digital hybrid design and inclusive design — products that feel effortless for the broadest possible range of users. Strong record in healthcare and consumer goods.',
+          ceiling:
+            'Not ideal for B2B industrial or complex connected hardware platforms. Less agile than smaller studios. Limited digital product systems capability — strong on form and usability, less so on full ecosystem thinking.',
+          clients: ['OXO', 'Ford', 'HP', 'Gatorade', 'Samsung', 'PepsiCo'],
+        },
+        metalab: {
+          eyebrow: 'Digital — Canada / US',
+          title: 'Metalab',
+          subtitle: 'The digital partnership benchmark',
+          strength:
+            "Built their reputation as the firm behind Slack's early product design. Long-term embedded partnerships with Nike, Apple, Uber, Google, and Headspace. Their model — senior-led, outcome-focused, genuinely collaborative — is what clients mean when they say they want a real partner.",
+          ceiling:
+            'Purely digital. No physical product capability, no industrial design, no mechanical engineering. Clients building connected hardware have to go elsewhere for half the problem — and the seam between those two firms is where products fail.',
+          clients: [
+            'Apple',
+            'Nike',
+            'Slack',
+            'Uber',
+            'Google',
+            'Headspace',
+            'Coinbase',
+            'Loom',
+          ],
+        },
+        workco: {
+          eyebrow: 'Digital — New York',
+          title: 'Work & Co',
+          subtitle: 'The execution quality standard',
+          strength:
+            "Built a reputation for shipping digital products that simply work better than what large agencies produce. Prioritizes senior talent and measurable outcomes over process. Twice named to Ad Age's A-List. Fast Company's Most Innovative Companies.",
+          ceiling:
+            'Digital-only, brand and experience focused. Strong executional craft but not a strategic innovation partner for companies developing new physical products or navigating early-stage concept development.',
+          clients: [
+            'Apple',
+            'IKEA',
+            'Google',
+            'Pfizer',
+            'Mercedes',
+            'LVMH',
+            'Gatorade',
+            'PGA Tour',
+          ],
+        },
+        mckinsey: {
+          eyebrow: 'Experience + Strategy — Global',
+          title: 'McKinsey Design',
+          subtitle: 'Strategy-led experience and service design',
+          strength:
+            "Backs design thinking with McKinsey's business strategy muscle. Operates at the C-suite level with access and credibility no pure design firm can match. Particularly strong in service design, digital transformation, and customer experience strategy.",
+          ceiling:
+            'Design as a function of strategy rather than craft. Lacks the deep industrial design and physical product capability that Above has. Executional output is often handed off to other firms — they design the strategy, not the thing itself.',
+          clients: [
+            'Fortune 500 broadly',
+            'Financial services',
+            'Healthcare',
+            'Retail',
+            'Government',
+          ],
+        },
+        fjord: {
+          eyebrow: 'Experience — Acquired by Accenture',
+          title: 'Fjord',
+          subtitle: 'Service design pioneer — now absorbed',
+          strength:
+            'Defined service design as a discipline for many enterprise clients. Strong human-centered research methodology, strong experience design. At their peak, genuinely occupied the center of the Venn — strategy, physical, digital, and experience.',
+          ceiling:
+            'The cautionary tale. Acquired by Accenture in 2013, formally wound down as a brand in 2023. Lost the edge that made them distinctive as they were absorbed into a larger machine. Their story is exactly the market signal we cited — the era of the immersive agency-led transformation is over.',
+          clients: ['Absorbed into Accenture Song — no longer independent'],
+        },
+        ideo: {
+          eyebrow: 'Center — Lost position',
+          title: 'IDEO',
+          subtitle: 'Pioneer of design thinking — fading',
+          strength:
+            'Invented design thinking as a commercial methodology. At their peak in the 2000s–2010s, IDEO genuinely occupied the center of this diagram — physical, digital, strategy, and experience simultaneously. Seminal influence on the entire industry.',
+          ceiling:
+            'Lost their center position through a combination of size, acquisition (by Kyu Collective), and a methodology that became so widely copied it lost its differentiation. Significant layoffs in 2023. A reminder that occupying the center requires continuous reinvention — not just the right capability set.',
+          clients: [
+            'Apple (historically)',
+            'Ford',
+            'Procter & Gamble',
+            'NHS',
+            'IDEO.org',
+          ],
+        },
+      };
+
+      function showFirm(id) {
+        var f = firms[id];
+        if (!f) return;
+        document.getElementById('firm-eyebrow').textContent = f.eyebrow;
+        document.getElementById('firm-title').textContent = f.title;
+        document.getElementById('firm-subtitle').textContent = f.subtitle;
+        document.getElementById('firm-strength').textContent = f.strength;
+        document.getElementById('firm-ceiling').textContent = f.ceiling;
+        var cc = document.getElementById('firm-clients');
+        cc.innerHTML = '';
+        f.clients.forEach(function (c) {
+          var s = document.createElement('span');
+          s.textContent = c;
+          s.style.cssText =
+            'font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;padding:4px 10px;background:#2D2D2D;color:#9CA3AF;';
+          cc.appendChild(s);
+        });
+        var panel = document.getElementById('firm-panel');
+        panel.style.display = 'block';
+        panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        document.querySelectorAll('.firm-dot').forEach(function (d) {
+          d.style.opacity = d.getAttribute('data-firm') === id ? '1' : '0.35';
+        });
+      }
+
+      function closeFirm() {
+        document.getElementById('firm-panel').style.display = 'none';
+        document.querySelectorAll('.firm-dot').forEach(function (d) {
+          d.style.opacity =
+            d.getAttribute('data-firm') === 'ideo' ? '0.55' : '1';
+        });
+      }
+    </script>
+
+    <!-- OPPORTUNITY -->
+    <section id="opportunity">
+      <div class="inner">
+        <div class="eyebrow">The Opportunity</div>
+        <h2>The specific gap <strong>Above is built to fill.</strong></h2>
+
+        <p>
+          The question isn't whether there's a market for design and innovation
+          services in the US. There is — and it's growing. The question is what
+          kind of firm wins in this specific moment, with these specific
+          conditions.
+        </p>
+
+        <div class="tension-grid">
+          <div class="tension-side">
+            <h3>What the market has</h3>
+            <p>
+              Agencies that are excellent at digital product design, or
+              excellent at industrial design. Firms that can make beautiful
+              screens, or beautiful objects. Development shops that can build
+              what someone else imagined.
+            </p>
+            <p>
+              Consultancies that will tell clients what they want to hear, wrap
+              it in a framework, and call it a strategy.
+            </p>
+          </div>
+          <div class="tension-divider">vs</div>
+          <div class="tension-side right">
+            <h3>What the market needs</h3>
+            <p>
+              A partner who operates with equal fluency across physical and
+              digital — and treats them as one problem, not two parallel
+              workstreams.
+            </p>
+            <p>
+              A firm with the creative courage and cultural honesty to tell a
+              client when their brief is wrong, when the concept has a flaw, and
+              when the market won't receive what they think it will.
+            </p>
+          </div>
+        </div>
+
+        <div class="card-grid" style="margin-top: 2px">
+          <div class="card">
+            <div class="card-number">Observation 01</div>
+            <h3>The integration gap is real and widening</h3>
+            <p>
+              Most companies building connected products today are managing two
+              separate creative relationships — one for the hardware, one for
+              the digital experience. The seam between them is where products
+              fail.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-number">Observation 02</div>
+            <h3>Long-term creative partners are scarce</h3>
+            <p>
+              The project-based agency model is exhausting for clients. The
+              EarLabs model — a decade-long creative and commercial partnership
+              that helped build a company — is rare and genuinely valued when
+              clients find it.
+            </p>
+          </div>
+          <div class="card">
+            <div class="card-number">Observation 03</div>
+            <h3>Scandinavian honesty is a differentiator</h3>
+            <p>
+              US agencies optimize for winning the room. Scandinavian design
+              culture optimizes for getting it right. In a market full of yes, a
+              credible no — delivered with rigor and care — is worth a great
+              deal.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VERTICALS -->
+    <section id="verticals">
+      <div class="inner">
+        <div class="eyebrow">Where We Play</div>
+        <h2>
+          Three verticals. <strong>Different entry points. One thesis.</strong>
+        </h2>
+
+        <p>
+          Above should not pursue all markets simultaneously. The following
+          verticals are prioritized by a combination of portfolio fit, network
+          warmth, and market readiness — not just size of prize. Early wins that
+          are the right wins matter more than large engagements that stretch our
+          credibility.
+        </p>
+
+        <div class="vertical-list">
+          <div class="vertical-item">
+            <div class="vertical-label">01 — Healthcare &amp; Health Tech</div>
+            <div class="vertical-desc">
+              <p>
+                Above's strongest US foothold. The Siemens relationship in
+                Boston was organically built from Sweden — proof that our work
+                speaks before we do. The portfolio here is genuinely compelling:
+                INTO light therapy, EarLabs ear protection, PACT personal
+                massage device, Avanto Care eldercare platform.
+              </p>
+              <p>
+                The US healthcare market is undergoing fundamental
+                transformation — toward home-based care, connected diagnostics,
+                and patient-facing devices that need to be both clinically
+                rigorous and humanly desirable. That intersection is precisely
+                where Above operates.
+              </p>
+              <p>
+                Entry point: Leverage existing relationships (Siemens Boston,
+                regional medical practice) as reference clients and proof of
+                category credibility. Target innovation and product leadership
+                at mid-to-large health systems and medical device companies.
+              </p>
+            </div>
+            <div class="vertical-tags">
+              <span class="tag hot">Priority 1</span>
+              <span class="tag warm">Network: Warm</span>
+              <span class="tag">Portfolio: Strong</span>
+            </div>
+          </div>
+
+          <div class="vertical-item">
+            <div class="vertical-label">
+              02 — Consumer &amp; Lifestyle Products
+            </div>
+            <div class="vertical-desc">
+              <p>
+                Above's deepest and most diverse case portfolio. The EarLabs,
+                Bang &amp; Olufsen, and Beosound cases demonstrate an ability to
+                make products that become iconic in their categories — not just
+                beautiful, but resolved. The live flagship connected hardware
+                opportunity currently in play makes this vertical immediately
+                tangible.
+              </p>
+              <p>
+                US consumer brands in outdoor, wellness, audio, and sports
+                categories are actively looking for the kind of long-term
+                creative partnership Above offers naturally. They move faster
+                than enterprise clients, take more creative risk, and reward
+                genuine craft.
+              </p>
+              <p>
+                Entry point: Convert the current live opportunity into a
+                reference case. Use the Frog alumni BD network to open doors at
+                consumer product innovation leads. Build a narrative around the
+                EarLabs model — creative partner, not vendor.
+              </p>
+            </div>
+            <div class="vertical-tags">
+              <span class="tag hot">Priority 2</span>
+              <span class="tag hot">Live Opportunity</span>
+              <span class="tag">Portfolio: Deepest</span>
+            </div>
+          </div>
+
+          <div class="vertical-item">
+            <div class="vertical-label">
+              03 — Hard Tech &amp; Industrial Manufacturers
+            </div>
+            <div class="vertical-desc">
+              <p>
+                The most structurally compelling vertical for Above's
+                physical-digital capability set — but the hardest to enter
+                without a warm door. Companies like Milwaukee Tool, Bosch, and
+                John Deere are deeply invested in making their physical products
+                smarter: connected jobsite platforms, app-controlled hardware,
+                digital interfaces on industrial equipment.
+              </p>
+              <p>
+                Above is one of very few firms that can credibly operate across
+                industrial design and digital product simultaneously without
+                treating them as separate workstreams. The ABB A400 EV charger
+                case is a direct proof point for this audience. The challenge is
+                access — these companies have significant in-house design
+                capability and require relationship-based entry.
+              </p>
+              <p>
+                Entry point: Research where Above's European hard tech
+                relationships have US counterparts or subsidiaries. Identify
+                industry events (trade shows, design conferences) where
+                innovation and product leadership congregates. Build a targeted
+                outreach strategy for the right titles at the right companies.
+              </p>
+            </div>
+            <div class="vertical-tags">
+              <span class="tag warm">Priority 3</span>
+              <span class="tag warm">Network: Cold</span>
+              <span class="tag">Portfolio: Targeted</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POSITIONING -->
+    <section id="positioning">
+      <div class="inner">
+        <div class="eyebrow">How We Win</div>
+        <h2>A positioning narrative <strong>built to open doors.</strong></h2>
+
+        <p>
+          Above's current description — "a Scandinavian innovation and design
+          agency with a unique blend of digital and physical design
+          capabilities" — is accurate but inside-out. It describes what we are.
+          It doesn't answer the question a prospect is actually asking:
+          <em
+            >what problem do you solve for me, and why can't anyone else solve
+            it the same way?</em
+          >
+        </p>
+
+        <div class="positioning-block">
+          <div class="label">The Opener — Lead with the problem</div>
+          <div class="statement">
+            "We work with companies who are trying to make a physical product
+            smarter, or a digital experience more tangible — and are finding
+            that most agencies can do one or the other, but not both."
+          </div>
+          <p class="follow">
+            This framing is industry-agnostic, invites self-identification, and
+            turns the microphone back to the prospect. The right client
+            recognizes their own problem immediately.
+          </p>
+        </div>
+
+        <div
+          class="positioning-block"
+          style="background: var(--accent); margin-top: 2px"
+        >
+          <div class="label" style="color: var(--accent-light)">
+            The Differentiator — When they lean in
+          </div>
+          <div class="statement">
+            "What makes us different isn't just the capability. It's the working
+            model. We're Scandinavian — which means we're going to tell you what
+            we actually think. If the brief is wrong, we'll say so. If the
+            concept has a flaw, we'll find it before the market does. That kind
+            of honesty is rarer than it should be."
+          </div>
+          <p class="follow" style="color: rgba(255, 255, 255, 0.7)">
+            This reframes "Scandinavian" from a geographic descriptor into a
+            value proposition. It's not where we're from — it's how we work, and
+            what clients get from working with us that they won't get elsewhere.
+          </p>
+        </div>
+
+        <div style="margin-top: 56px">
+          <h3>What this positioning does</h3>
+          <div class="card-grid" style="margin-top: 24px">
+            <div class="card">
+              <div class="card-number">Function 01</div>
+              <h3>Excludes the wrong clients</h3>
+              <p>
+                Companies looking for visual polish, trend-chasing, or yes-men
+                will self-select out. That's a feature, not a bug. The clients
+                who stay are the ones who will value what Above actually does.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-number">Function 02</div>
+              <h3>Earns credibility before the portfolio</h3>
+              <p>
+                Leading with the problem rather than credentials signals that we
+                understand the client's world. It creates the conditions for a
+                real conversation rather than a credentials review.
+              </p>
+            </div>
+            <div class="card">
+              <div class="card-number">Function 03</div>
+              <h3>Creates space for long relationships</h3>
+              <p>
+                Positioning around honesty and partnership naturally invites the
+                EarLabs model — where the best work happens not in a single
+                project, but over time, with trust built incrementally.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section id="actions">
+      <div class="inner">
+        <div class="eyebrow">Next Steps</div>
+        <h2>What we need to <strong>decide and do together.</strong></h2>
+
+        <p>
+          This document is a starting point, not a finished strategy. The
+          questions below represent the decisions that will shape the first 90
+          days of Above's US operation. Some can be answered in Stockholm.
+          Others will only be answered in the market.
+        </p>
+
+        <div class="action-list">
+          <div class="action-item">
+            <div class="action-num">01</div>
+            <div class="action-content">
+              <h3>Align on vertical sequencing and the first 90-day focus</h3>
+              <p>
+                Healthcare and consumer products are the warmest near-term
+                opportunities. Hard tech is the most structurally compelling
+                long-term play. We need to agree on how to resource against
+                each, and what a first credible US win looks like — and by when.
+              </p>
+            </div>
+          </div>
+
+          <div class="action-item">
+            <div class="action-num">02</div>
+            <div class="action-content">
+              <h3>Build the US target company list together</h3>
+              <p>
+                I have hypotheses on targets across all three verticals. Above's
+                European leadership has relationship context I don't yet have.
+                The strongest list will combine both. This is a working session
+                item — not a deliverable I can produce alone.
+              </p>
+            </div>
+          </div>
+
+          <div class="action-item">
+            <div class="action-num">03</div>
+            <div class="action-content">
+              <h3>Define the US-Sweden working model explicitly</h3>
+              <p>
+                Who owns the client relationship at what stage? How does a
+                US-based business lead work with a Sweden-based delivery team
+                across time zones? What does the handoff from commercial to
+                creative look like? Leaving this undefined creates friction that
+                compounds quickly.
+              </p>
+            </div>
+          </div>
+
+          <div class="action-item">
+            <div class="action-num">04</div>
+            <div class="action-content">
+              <h3>
+                Pressure-test the positioning narrative with Above leadership
+              </h3>
+              <p>
+                The opener and differentiator outlined here are hypotheses based
+                on US market reading. Above's creative and commercial leadership
+                will know immediately whether they ring true to the actual
+                working culture and output. Refine together before taking to
+                market.
+              </p>
+            </div>
+          </div>
+
+          <div class="action-item">
+            <div class="action-num">05</div>
+            <div class="action-content">
+              <h3>Identify the European relationships with US counterparts</h3>
+              <p>
+                Several of Above's existing European clients — particularly in
+                hard tech and healthcare — likely have US subsidiaries or
+                US-based innovation teams. A warm introduction from an existing
+                Above client relationship is the highest-quality door we can
+                open in the US market. We should map these systematically.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pull-quote" style="margin-top: 64px">
+          <p>
+            "The goal of this trip isn't to present a finished strategy. It's to
+            leave Stockholm with a shared point of view, a short list of
+            priority targets, and clear things for both sides to do next."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="logo">Above</div>
+      <div class="date">US Market Strategy — June 2026 — Working Draft</div>
+    </footer>
+
+    <script>
+      // Progress bar
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+        document.getElementById('progress-bar').style.width = progress + '%';
+      });
+    </script>
+  </body>
+</html>
